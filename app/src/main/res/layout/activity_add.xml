@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/et_amount"
+        android:layout_marginTop="20dp"
+        android:textSize="16sp"
+        android:textColor="#090d10"
+        android:hint="amount"
+        android:background="@drawable/bg_user"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:drawablePadding="5dp"
+        android:maxLines="1" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/et_date"
+        android:layout_marginTop="20dp"
+        android:textSize="16sp"
+        android:textColor="#090d10"
+        android:hint="date"
+        android:background="@drawable/bg_user"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:drawablePadding="5dp"
+        android:maxLines="1"
+        android:layout_below="@id/et_amount"/>
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/et_date"
+        android:layout_marginTop="20dp">
+
+        <RadioButton
+            android:id="@+id/btnTraffic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="traffic"
+            android:checked="true"
+            android:paddingRight="15dp" />
+
+        <RadioButton
+            android:id="@+id/btnFood"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="food"/>
+    </RadioGroup>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:id="@+id/btn_add"
+        android:text="Add"
+        android:layout_below="@id/radioGroup"
+        android:textSize="20sp"
+        android:textColor="#ffffff"
+        android:background="@drawable/bg_login"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:id="@+id/btn_cancel"
+        android:text="Cancel"
+        android:layout_below="@id/radioGroup"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@id/btn_add"
+        android:textSize="20sp"
+        android:textColor="#ffffff"
+        android:background="@drawable/bg_login" />
+</RelativeLayout>

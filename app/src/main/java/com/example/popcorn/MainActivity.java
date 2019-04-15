@@ -8,12 +8,17 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
     private Button btnUser;
-
+    private Button btnAdd;
+    private Button btnDetail;
+    private DBHelper dbHelper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        dbHelper = new DBHelper(this,"BookKeeping.db",null,1);
+
         setContentView(R.layout.activity_main);
-        btnUser=(Button)findViewById(R.id.btn_user);
+        btnUser=findViewById(R.id.btn_user);
         btnUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -22,5 +27,26 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        btnAdd=findViewById(R.id.btn_add);
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this,AddActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
+        btnDetail=findViewById(R.id.btn_details);
+        btnDetail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this,DetailActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
+
     }
 }

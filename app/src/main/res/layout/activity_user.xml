@@ -21,6 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:id="@+id/et_password"
+        android:inputType="textPassword"
         android:layout_marginTop="20dp"
         android:layout_below="@id/et_username"
         android:textSize="16sp"
