@@ -18,7 +18,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:id="@+id/et_date"
+        android:id="@+id/et_time"
         android:layout_marginTop="20dp"
         android:textSize="16sp"
         android:textColor="#090d10"
@@ -29,47 +29,42 @@
         android:drawablePadding="5dp"
         android:maxLines="1"
         android:layout_below="@id/et_amount"/>
-    <RadioGroup
-        android:id="@+id/radioGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_below="@id/et_date"
-        android:layout_marginTop="20dp">
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/et_tag"
+        android:layout_marginTop="20dp"
+        android:textSize="16sp"
+        android:textColor="#090d10"
+        android:hint="tag"
+        android:background="@drawable/bg_user"
+        android:paddingLeft="10dp"
+        android:paddingRight="5dp"
+        android:maxLines="1"
+        android:layout_below="@id/et_time"/>
 
-        <RadioButton
-            android:id="@+id/btnTraffic"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="traffic"
-            android:checked="true"
-            android:paddingRight="15dp" />
-
-        <RadioButton
-            android:id="@+id/btnFood"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="food"/>
-    </RadioGroup>
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
         android:id="@+id/btn_add"
-        android:text="Add"
-        android:layout_below="@id/radioGroup"
-        android:textSize="20sp"
-        android:textColor="#ffffff"
-        android:background="@drawable/bg_login"
-        />
-    <Button
         android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:id="@+id/btn_cancel"
-        android:text="Cancel"
-        android:layout_below="@id/radioGroup"
-        android:layout_marginLeft="20dp"
-        android:layout_toRightOf="@id/btn_add"
-        android:textSize="20sp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="233dp"
+        android:background="@drawable/bg_login"
+        android:text="Add"
         android:textColor="#ffffff"
-        android:background="@drawable/bg_login" />
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/btn_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/btn_add"
+        android:layout_marginEnd="94dp"
+        android:background="@drawable/bg_login"
+        android:text="Cancel"
+        android:textColor="#ffffff"
+        android:textSize="20sp" />
 </RelativeLayout>

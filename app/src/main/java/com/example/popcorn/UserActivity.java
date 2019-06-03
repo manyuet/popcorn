@@ -1,5 +1,6 @@
 package com.example.popcorn;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -14,26 +15,35 @@ public class UserActivity extends AppCompatActivity {
     private Button btnLogin;
     private EditText etUserName;
     private EditText etPassword;
+    private Button btnCancel;
+    private Button btnRegister;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
-        btnLogin= findViewById(R.id.btn_login);
-        etUserName= findViewById(R.id.et_username);
-        etPassword=findViewById(R.id.et_password);
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String username = etUserName.getText().toString();
-                String password = etPassword.getText().toString();
-                if("manyuet".equals(username) && "123456".equals(password)) {
-                    Toast.makeText(UserActivity.this, "login successfully", Toast.LENGTH_SHORT).show();
-                }else{
-                    Toast.makeText(UserActivity.this, "login failed", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
+        btnLogin = findViewById(R.id.btn_login);
+        etUserName = findViewById(R.id.et_username);
+        etPassword = findViewById(R.id.et_password);
+        btnCancel = findViewById(R.id.btn_cancel);
+        btnRegister = findViewById(R.id.btn_register);
+        btnLogin.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String username = etUserName.getText().toString();
+                        String password = etPassword.getText().toString();
+                        if (DBUtil.loginUser(username, password)) {
+                            Toast.makeText(UserActivity.this, "login successfully", Toast.LENGTH_SHORT).show();
+                            {
+                                Intent intent = new Intent(UserActivity.this, MainActivity.class);
+                                startActivity(intent);
+                            }
+                        } else {
+                            Toast.makeText(UserActivity.this, "login failed", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
         etUserName.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -42,7 +52,7 @@ public class UserActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                Log.d("edittext",s.toString());
+                Log.d("edittext", s.toString());
 
             }
 
@@ -51,6 +61,21 @@ public class UserActivity extends AppCompatActivity {
 
             }
         });
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+        btnRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UserActivity.this, RegisterActivity.class);
+                startActivity(intent);
+
+            }
+        });
 
     }
+
 }

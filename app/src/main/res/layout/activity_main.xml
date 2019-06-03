@@ -41,5 +41,12 @@
         android:text="DATASTATISTIC"
         android:textAllCaps="false"
         android:layout_marginTop="10dp"/>
+    <Button
+        android:id="@+id/btn_imageview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ImageView"
+        android:textAllCaps="false"
+        android:layout_marginTop="10px"/>
 
 </LinearLayout>

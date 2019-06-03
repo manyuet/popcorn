@@ -5,21 +5,23 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.popcorn.R;
-import com.example.popcorn.entity.Account;
+import com.example.popcorn.entity.Record;
 
 import java.util.LinkedList;
 
 public class AccountAdapter extends BaseAdapter {
 
-    private LinkedList<Account> mData;
+    private LinkedList<Record> mData;
     private Context mContext;
 
-    public AccountAdapter(LinkedList<Account> mData, Context mContext) {
+    public AccountAdapter(LinkedList<Record> mData, Context mContext) {
         this.mData = mData;
         this.mContext = mContext;
+
     }
 
     @Override
@@ -42,8 +44,10 @@ public class AccountAdapter extends BaseAdapter {
         convertView = LayoutInflater.from(mContext).inflate(R.layout.item_activity_detail,parent,false);
         TextView tv_amount = (TextView) convertView.findViewById(R.id.tv_amount);
         tv_amount.setText(mData.get(position).getAmount().toString());
-        TextView tv_date = (TextView) convertView.findViewById(R.id.tv_date);
-        tv_date.setText(mData.get(position).getDate().toString());
+        TextView tv_time = (TextView) convertView.findViewById(R.id.tv_time);
+        tv_time.setText(mData.get(position).getTime().toString());
+        TextView tv_tag = (TextView) convertView.findViewById(R.id.tv_tag);
+        tv_tag.setText(mData.get(position).getTag().toString());
         return convertView;
     }
 }
