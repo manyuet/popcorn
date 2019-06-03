@@ -10,14 +10,13 @@ public class MainActivity extends AppCompatActivity {
     private Button btnUser;
     private Button btnAdd;
     private Button btnDetail;
-    private DBHelper dbHelper;
+    private Button btnStatistic;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        dbHelper = new DBHelper(this,"BookKeeping.db",null,1);
 
         setContentView(R.layout.activity_main);
         btnUser=findViewById(R.id.btn_user);
@@ -48,8 +47,13 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
-
-
+        btnStatistic=findViewById(R.id.btn_datastatistic);
+        btnStatistic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this,StatisticActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

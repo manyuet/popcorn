@@ -1,13 +1,19 @@
 package com.example.popcorn;
 
 import android.content.Context;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 
 import com.example.popcorn.entity.Record;
+import com.example.popcorn.entity.StatisticRecord;
 import com.example.popcorn.entity.User;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class DBUtil {
     private DBUtil() {
@@ -16,6 +22,13 @@ public class DBUtil {
     private static List<User> users = new ArrayList<>();
 
     private static List<Record> records = new ArrayList<>();
+
+    static {
+        User defaultUser = new User();
+        defaultUser.setUsername("admin");
+        defaultUser.setPassword("123456");
+        users.add(defaultUser);
+    }
 
     // 保存登录后的用户名
     public static String loginUsername;
@@ -101,5 +114,25 @@ public class DBUtil {
         }
         return result;
     }
+
+    public static List<StatisticRecord> countAllTagAmount(String username){
+        Map<String,Double> counter = new HashMap<>();
+        for(Record record:records){
+            if(!record.getUsername().equals(username))continue;
+            if(!counter.containsKey(record.getTag())){
+                counter.put(record.getTag(), Double.valueOf(0));
+            }
+            counter.put(record.getTag(), counter.get(record.getTag())+record.getAmount());
+        }
+        List<StatisticRecord> result = new ArrayList<>();
+        for(Map.Entry<String,Double> entry:counter.entrySet()){
+            StatisticRecord record = new StatisticRecord();
+            record.setTag(entry.getKey());
+            record.setAmount(entry.getValue());
+            result.add(record);
+        }
+        return result;
+    }
+
 
 }

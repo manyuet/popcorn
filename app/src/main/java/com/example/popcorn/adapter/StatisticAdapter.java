@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.popcorn.R;
@@ -13,13 +12,15 @@ import com.example.popcorn.entity.Record;
 import com.example.popcorn.entity.StatisticRecord;
 
 import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
-public class AccountAdapter extends BaseAdapter {
+public class StatisticAdapter extends BaseAdapter {
 
-    private LinkedList<Record> mData;
+    private List<StatisticRecord> mData;
     private Context mContext;
 
-    public AccountAdapter(LinkedList<Record> mData, Context mContext) {
+    public StatisticAdapter(List<StatisticRecord> mData, Context mContext) {
         this.mData = mData;
         this.mContext = mContext;
 

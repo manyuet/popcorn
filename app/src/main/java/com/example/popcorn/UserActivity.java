@@ -15,7 +15,6 @@ public class UserActivity extends AppCompatActivity {
     private Button btnLogin;
     private EditText etUserName;
     private EditText etPassword;
-    private Button btnCancel;
     private Button btnRegister;
 
     @Override
@@ -25,7 +24,6 @@ public class UserActivity extends AppCompatActivity {
         btnLogin = findViewById(R.id.btn_login);
         etUserName = findViewById(R.id.et_username);
         etPassword = findViewById(R.id.et_password);
-        btnCancel = findViewById(R.id.btn_cancel);
         btnRegister = findViewById(R.id.btn_register);
         btnLogin.setOnClickListener(
                 new View.OnClickListener() {
@@ -59,12 +57,6 @@ public class UserActivity extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable s) {
 
-            }
-        });
-        btnCancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
             }
         });
         btnRegister.setOnClickListener(new View.OnClickListener() {
