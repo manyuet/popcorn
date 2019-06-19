@@ -42,10 +42,12 @@ public class AccountAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        convertView = LayoutInflater.from(mContext).inflate(R.layout.item_statistic_detail,parent,false);
-        TextView tv_amount = (TextView) convertView.findViewById(R.id.tv_statistic_amount);
+        convertView = LayoutInflater.from(mContext).inflate(R.layout.item_activity_detail,parent,false);
+        TextView tv_amount = (TextView) convertView.findViewById(R.id.tv_amount);
         tv_amount.setText(mData.get(position).getAmount().toString());
-        TextView tv_tag = (TextView) convertView.findViewById(R.id.tv_statistic_tag);
+        TextView tv_tag = (TextView) convertView.findViewById(R.id.tv_tag);
+        TextView tv_time = convertView.findViewById(R.id.tv_time);
+        tv_time.setText(mData.get(position).getTime());
         tv_tag.setText(mData.get(position).getTag().toString());
         return convertView;
     }

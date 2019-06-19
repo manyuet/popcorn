@@ -2,11 +2,13 @@ package com.example.popcorn;
 
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -20,16 +22,16 @@ public class AddActivity extends AppCompatActivity {
     private Button btnAdd;
     private Button btnCancel;
     private EditText etAmount;
-    private EditText etTime;
+
     private EditText etTag;
-    private DBHelper dbHelper;
+    private CalendarView calendarView;
+    private String time;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add);
-        dbHelper = new DBHelper(this,"BookKeeping.db",null,1);
         initView();
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
@@ -37,7 +39,6 @@ public class AddActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Double amount = Double.valueOf(etAmount.getText().toString());
                 String tag = String.valueOf(etTag.getText().toString());
-                String time = String.valueOf(etTime.getText().toString());
                 // 在点击添加按钮的时候，根据填写的数据，组装成record对象，调用addRecord方法，将record对象存进records里
                 Record record = new Record();
                 record.setAmount(amount);
@@ -59,14 +60,20 @@ public class AddActivity extends AppCompatActivity {
                 finish();
             }
         });
+        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
+                time = year+"-"+month+"-"+dayOfMonth;
+            };
+        });
     }
 
     private void initView() {
         btnAdd = findViewById(R.id.btn_add);
         btnCancel = findViewById(R.id.btn_cancel);
         etAmount = findViewById(R.id.et_amount);
-        etTime = findViewById(R.id.et_time);
         etTag = findViewById(R.id.et_tag);
+        calendarView = findViewById(R.id.cal_view);
 
 
     }

@@ -5,6 +5,8 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:id="@+id/et_amount"
         android:layout_marginTop="20dp"
         android:textSize="16sp"
@@ -15,23 +17,12 @@
         android:paddingRight="10dp"
         android:drawablePadding="5dp"
         android:maxLines="1" />
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:id="@+id/et_time"
-        android:layout_marginTop="20dp"
-        android:textSize="16sp"
-        android:textColor="#090d10"
-        android:hint="date"
-        android:background="@drawable/bg_user"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:drawablePadding="5dp"
-        android:maxLines="1"
-        android:layout_below="@id/et_amount"/>
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:id="@+id/et_tag"
         android:layout_marginTop="20dp"
         android:textSize="16sp"
@@ -41,20 +32,22 @@
         android:paddingLeft="10dp"
         android:paddingRight="5dp"
         android:maxLines="1"
-        android:layout_below="@id/et_time"/>
-
+        android:layout_below="@id/et_amount"/>
+    <CalendarView
+        android:id="@+id/cal_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_tag"/>
     <Button
         android:id="@+id/btn_add"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="233dp"
+        android:layout_marginLeft="50dp"
         android:background="@drawable/bg_login"
         android:text="Add"
         android:textColor="#ffffff"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:layout_below="@id/cal_view"/>
 
     <Button
         android:id="@+id/btn_cancel"

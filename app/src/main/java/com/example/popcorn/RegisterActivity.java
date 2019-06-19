@@ -15,7 +15,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class RegisterActivity extends AppCompatActivity {
-    private DBHelper dbHelper;
     private EditText etUsername;
     private EditText etPassword;
     private EditText etConfirmPassword;
@@ -26,7 +25,6 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        dbHelper = new DBHelper(this, "BookKeeping.db", null, 1);
         initView();
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)

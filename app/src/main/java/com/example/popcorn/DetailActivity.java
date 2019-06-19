@@ -18,7 +18,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class DetailActivity extends AppCompatActivity {
-    private DBHelper dbHelper;
     private List<Record> mData;
     private AccountAdapter mAdapter;
     private Context mContext;

@@ -20,13 +20,6 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btn_user"
-        android:text="USER"
-        android:textAllCaps="false"
-        android:layout_marginTop="20dp" />
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/btn_add"
         android:text="ADD"
         android:textAllCaps="false"

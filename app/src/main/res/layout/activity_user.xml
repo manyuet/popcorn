@@ -25,6 +25,8 @@
         android:drawableLeft="@drawable/icon_user"
         android:layout_below="@+id/tv_label"
         android:maxLines="1"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         />
     <EditText
         android:layout_width="match_parent"
@@ -41,6 +43,8 @@
         android:paddingRight="10dp"
         android:drawablePadding="5dp"
         android:drawableLeft="@drawable/icon_password"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:maxLines="1"/>
     <Button
         android:layout_width="match_parent"

@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
-    private Button btnUser;
     private Button btnAdd;
     private Button btnDetail;
     private Button btnStatistic;
@@ -19,15 +18,6 @@ public class MainActivity extends AppCompatActivity {
 
 
         setContentView(R.layout.activity_main);
-        btnUser=findViewById(R.id.btn_user);
-        btnUser.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //跳转到user页面
-                Intent intent=new Intent(MainActivity.this,UserActivity.class);
-                startActivity(intent);
-            }
-        });
         btnAdd=findViewById(R.id.btn_add);
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
